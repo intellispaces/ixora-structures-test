@@ -1,5 +1,6 @@
 package tech.intellispaces.ixora.structures.properties;
 
+import org.junit.jupiter.api.Test;
 import tech.intellispaces.ixora.structures.collection.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -7,29 +8,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Tests for {@link YamlStringToPropertiesTransition} guide.
  */
-public class YamlStringToPropertiesTransitionTest {
+public interface YamlStringToPropertiesTransitionTest {
 
-  public static void allTests(YamlStringToPropertiesTransition guide) {
-    testEmptyYaml(guide);
-    testSimpleValues(guide);
-    testIntegerList(guide);
-    testDoubleList(guide);
-    testStringList(guide);
-  }
+  YamlStringToPropertiesTransition guide();
 
-  public static void testEmptyYaml(YamlStringToPropertiesTransition guide) {
+  @Test
+  default void testEmptyYaml() {
     // Given
     String yaml = "";
 
     // When
-    Properties properties = guide.yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
     assertThat(properties.size()).isEqualTo(0);
   }
 
-  public static void testSimpleValues(YamlStringToPropertiesTransition guide) {
+  @Test
+  default void testSimpleData() {
     // Given
     String yaml = """
         intValue: 1
@@ -38,7 +35,7 @@ public class YamlStringToPropertiesTransitionTest {
         """;
 
     // When
-    Properties properties = guide.yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -54,8 +51,9 @@ public class YamlStringToPropertiesTransitionTest {
     assertThat(properties.value("stringValue")).isEqualTo("abc");
   }
 
+  @Test
   @SuppressWarnings("unchecked")
-  public static void testIntegerList(YamlStringToPropertiesTransition guide) {
+  default void testIntegerList() {
     // Given
     String yaml = """
         values:
@@ -65,7 +63,7 @@ public class YamlStringToPropertiesTransitionTest {
         """;
 
     // When
-    Properties properties = guide.yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -82,8 +80,9 @@ public class YamlStringToPropertiesTransitionTest {
     assertThat(((List<Integer>) properties.value("values")).element(2)).isEqualTo(3);
   }
 
+  @Test
   @SuppressWarnings("unchecked")
-  public static void testDoubleList(YamlStringToPropertiesTransition guide) {
+  default void testDoubleList() {
     // Given
     String yaml = """
         values:
@@ -93,7 +92,7 @@ public class YamlStringToPropertiesTransitionTest {
         """;
 
     // When
-    Properties properties = guide.yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -110,8 +109,9 @@ public class YamlStringToPropertiesTransitionTest {
     assertThat(((List<Double>) properties.value("values")).element(2)).isEqualTo(3.3);
   }
 
+  @Test
   @SuppressWarnings("unchecked")
-  public static void testStringList(YamlStringToPropertiesTransition guide) {
+  default void testStringList() {
     // Given
     String yaml = """
         values:
@@ -121,7 +121,7 @@ public class YamlStringToPropertiesTransitionTest {
         """;
 
     // When
-    Properties properties = guide.yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -136,5 +136,25 @@ public class YamlStringToPropertiesTransitionTest {
     assertThat(((List<String>) properties.value("values")).element(0)).isEqualTo("a");
     assertThat(((List<String>) properties.value("values")).element(1)).isEqualTo("b");
     assertThat(((List<String>) properties.value("values")).element(2)).isEqualTo("c");
+  }
+
+  @Test
+  default void testNestedData() {
+    // Given
+    String yaml = """
+        value1: 1
+        nestedValue:
+          value2: abc
+        """;
+
+    // When
+    Properties properties = guide().yamlStringToProperties(yaml);
+
+    // Then
+    assertThat(properties).isNotNull();
+    assertThat(properties.size()).isEqualTo(2);
+    assertThat(properties.value("value1")).isEqualTo(1);
+    assertThat(properties.value("nestedValue.value2")).isEqualTo("abc");
+    assertThat(properties.propertiesValue("nestedValue").size()).isEqualTo(1);
   }
 }
