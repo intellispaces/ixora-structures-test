@@ -6,11 +6,11 @@ import tech.intellispaces.ixora.structures.collection.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for {@link YamlStringToPropertiesTransition} guide.
+ * Tests for guide {@link YamlStringToPropertiesGuide}.
  */
-public interface YamlStringToPropertiesTransitionTest {
+public interface YamlStringToPropertiesGuideTest {
 
-  YamlStringToPropertiesTransition guide();
+  YamlStringToPropertiesGuide guide();
 
   @Test
   default void testEmptyYaml() {

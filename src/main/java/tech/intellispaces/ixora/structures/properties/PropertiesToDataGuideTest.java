@@ -7,16 +7,16 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Tests for {@link PropertiesToDataTransition} guide.
+ * Tests for guide {@link PropertiesToDataGuide}.
  */
-public interface PropertiesToDataTransitionTest {
+public interface PropertiesToDataGuideTest {
 
-  PropertiesToDataTransition guide();
+  PropertiesToDataGuide guide();
 
   @Test
   default void testPrimitiveData_whenEmptyProperties() {
     // Given
-    Properties properties = mock(Properties.class);
+    PropertiesHandle properties = mock(PropertiesHandle.class);
 
     // When
     DataSamples.PrimitiveData data = guide().propertiesToData(properties, DataSamples.PrimitiveData.class);
@@ -30,7 +30,7 @@ public interface PropertiesToDataTransitionTest {
   @Test
   default void testSimpleData_whenEmptyProperties() {
     // Given
-    Properties properties = mock(Properties.class);
+    PropertiesHandle properties = mock(PropertiesHandle.class);
 
     // When
     DataSamples.SimpleData data = guide().propertiesToData(properties, DataSamples.SimpleData.class);
@@ -45,7 +45,7 @@ public interface PropertiesToDataTransitionTest {
   @Test
   default void testNestedData_whenEmptyProperties() {
     // Given
-    Properties properties = mock(Properties.class);
+    PropertiesHandle properties = mock(PropertiesHandle.class);
 
     // When
     DataSamples.NestedData data = guide().propertiesToData(properties, DataSamples.NestedData.class);
@@ -59,7 +59,7 @@ public interface PropertiesToDataTransitionTest {
   @Test
   default void testPrimitiveData_whenNotEmptyProperties() {
     // Given
-    Properties properties = mock(Properties.class);
+    PropertiesHandle properties = mock(PropertiesHandle.class);
     when(properties.value("intValue")).thenReturn(1);
     when(properties.value("doubleValue")).thenReturn(2.2);
 
@@ -75,7 +75,7 @@ public interface PropertiesToDataTransitionTest {
   @Test
   default void testSimpleData_whenNotEmptyProperties() {
     // Given
-    Properties properties = mock(Properties.class);
+    PropertiesHandle properties = mock(PropertiesHandle.class);
     when(properties.value("intValue")).thenReturn(1);
     when(properties.value("doubleValue")).thenReturn(2.2);
     when(properties.value("stringValue")).thenReturn("abc");
@@ -93,8 +93,8 @@ public interface PropertiesToDataTransitionTest {
   @Test
   default void testNestedData_whenNotEmptyProperties() {
     // Given
-    Properties properties = mock(Properties.class);
-    Properties nestedProperties = mock(Properties.class);
+    PropertiesHandle properties = mock(PropertiesHandle.class);
+    PropertiesHandle nestedProperties = mock(PropertiesHandle.class);
     when(properties.value("stringValue")).thenReturn("abc");
     when(properties.value("nestedValue")).thenReturn(nestedProperties);
     when(nestedProperties.value("stringValue")).thenReturn("def");
