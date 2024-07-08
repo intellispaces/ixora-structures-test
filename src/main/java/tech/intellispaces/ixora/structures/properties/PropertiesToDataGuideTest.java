@@ -1,5 +1,7 @@
 package tech.intellispaces.ixora.structures.properties;
 
+import intellispaces.ixora.structures.properties.PropertiesHandle;
+import intellispaces.ixora.structures.properties.PropertiesToDataGuide;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
