@@ -2,7 +2,11 @@ package tech.intellispaces.ixora.structures.properties;
 
 import intellispaces.ixora.structures.properties.PropertiesHandle;
 import intellispaces.ixora.structures.properties.PropertiesToDataGuide;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tech.intellispaces.framework.core.IntellispacesFramework;
+import tech.intellispaces.framework.core.system.Modules;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -11,12 +15,22 @@ import static org.mockito.Mockito.when;
 /**
  * Tests for guide {@link PropertiesToDataGuide}.
  */
-public interface PropertiesToDataGuideTest {
+public abstract class PropertiesToDataGuideTest {
 
-  PropertiesToDataGuide guide();
+  @BeforeEach
+  public void init() {
+    IntellispacesFramework.loadModule().start();
+  }
+
+  @AfterEach
+  public void deinit() {
+    Modules.activeModule().stop();
+  }
+
+  public abstract PropertiesToDataGuide guide();
 
   @Test
-  default void testPrimitiveData_whenEmptyProperties() {
+  public void testPrimitiveData_whenEmptyProperties() {
     // Given
     PropertiesHandle properties = mock(PropertiesHandle.class);
 
@@ -30,7 +44,7 @@ public interface PropertiesToDataGuideTest {
   }
 
   @Test
-  default void testSimpleData_whenEmptyProperties() {
+  public void testSimpleData_whenEmptyProperties() {
     // Given
     PropertiesHandle properties = mock(PropertiesHandle.class);
 
@@ -45,7 +59,7 @@ public interface PropertiesToDataGuideTest {
   }
 
   @Test
-  default void testNestedData_whenEmptyProperties() {
+  public void testNestedData_whenEmptyProperties() {
     // Given
     PropertiesHandle properties = mock(PropertiesHandle.class);
 
@@ -59,7 +73,7 @@ public interface PropertiesToDataGuideTest {
   }
 
   @Test
-  default void testPrimitiveData_whenNotEmptyProperties() {
+  public void testPrimitiveData_whenNotEmptyProperties() {
     // Given
     PropertiesHandle properties = mock(PropertiesHandle.class);
     when(properties.value("intValue")).thenReturn(1);
@@ -75,7 +89,7 @@ public interface PropertiesToDataGuideTest {
   }
 
   @Test
-  default void testSimpleData_whenNotEmptyProperties() {
+  public void testSimpleData_whenNotEmptyProperties() {
     // Given
     PropertiesHandle properties = mock(PropertiesHandle.class);
     when(properties.value("intValue")).thenReturn(1);
@@ -93,7 +107,7 @@ public interface PropertiesToDataGuideTest {
   }
 
   @Test
-  default void testNestedData_whenNotEmptyProperties() {
+  public void testNestedData_whenNotEmptyProperties() {
     // Given
     PropertiesHandle properties = mock(PropertiesHandle.class);
     PropertiesHandle nestedProperties = mock(PropertiesHandle.class);

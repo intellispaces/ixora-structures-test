@@ -3,19 +3,33 @@ package tech.intellispaces.ixora.structures.properties;
 import intellispaces.ixora.structures.collection.List;
 import intellispaces.ixora.structures.properties.Properties;
 import intellispaces.ixora.structures.properties.YamlStringToPropertiesGuide;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tech.intellispaces.framework.core.IntellispacesFramework;
+import tech.intellispaces.framework.core.system.Modules;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Tests for guide {@link YamlStringToPropertiesGuide}.
  */
-public interface YamlStringToPropertiesGuideTest {
+public abstract class YamlStringToPropertiesGuideTest {
 
-  YamlStringToPropertiesGuide guide();
+  @BeforeEach
+  public void init() {
+    IntellispacesFramework.loadModule().start();
+  }
+
+  @AfterEach
+  public void deinit() {
+    Modules.activeModule().stop();
+  }
+
+  public abstract YamlStringToPropertiesGuide guide();
 
   @Test
-  default void testEmptyYaml() {
+  public void testEmptyYaml() {
     // Given
     String yaml = "";
 
@@ -28,7 +42,7 @@ public interface YamlStringToPropertiesGuideTest {
   }
 
   @Test
-  default void testSimpleData() {
+  public void testSimpleData() {
     // Given
     String yaml = """
         intValue: 1
@@ -55,7 +69,7 @@ public interface YamlStringToPropertiesGuideTest {
 
   @Test
   @SuppressWarnings("unchecked")
-  default void testIntegerList() {
+  public void testIntegerList() {
     // Given
     String yaml = """
         values:
@@ -84,7 +98,7 @@ public interface YamlStringToPropertiesGuideTest {
 
   @Test
   @SuppressWarnings("unchecked")
-  default void testDoubleList() {
+  public void testDoubleList() {
     // Given
     String yaml = """
         values:
@@ -113,7 +127,7 @@ public interface YamlStringToPropertiesGuideTest {
 
   @Test
   @SuppressWarnings("unchecked")
-  default void testStringList() {
+  public void testStringList() {
     // Given
     String yaml = """
         values:
@@ -141,7 +155,7 @@ public interface YamlStringToPropertiesGuideTest {
   }
 
   @Test
-  default void testNestedData() {
+  public void testNestedData() {
     // Given
     String yaml = """
         value1: 1
