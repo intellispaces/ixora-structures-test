@@ -8,7 +8,7 @@
     </parent>
 
     <groupId>mindstructs</groupId>
-    <artifactId>ixora-structures-test</artifactId>
+    <artifactId>mindstructs-structures-test</artifactId>
     <packaging>jar</packaging>
     <description>Tests for general data structures</description>
 
