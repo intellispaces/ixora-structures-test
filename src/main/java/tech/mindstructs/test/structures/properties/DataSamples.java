@@ -1,4 +1,4 @@
-package tech.intellispaces.ixora.structures.properties;
+package tech.mindstructs.test.structures.properties;
 
 import tech.intellispaces.framework.core.annotation.Data;
 import tech.intellispaces.framework.core.annotation.Domain;

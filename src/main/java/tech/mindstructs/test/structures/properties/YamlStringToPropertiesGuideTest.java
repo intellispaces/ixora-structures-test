@@ -1,8 +1,8 @@
-package tech.intellispaces.ixora.structures.properties;
+package tech.mindstructs.test.structures.properties;
 
-import intellispaces.ixora.structures.collection.List;
-import intellispaces.ixora.structures.properties.Properties;
-import intellispaces.ixora.structures.properties.YamlStringToPropertiesGuide;
+import intellispaces.ixora.mindstructs.structures.collection.List;
+import intellispaces.ixora.mindstructs.structures.properties.Properties;
+import intellispaces.ixora.mindstructs.structures.properties.YamlStringToPropertiesGuide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

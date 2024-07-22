@@ -1,7 +1,7 @@
-package tech.intellispaces.ixora.structures.properties;
+package tech.mindstructs.test.structures.properties;
 
-import intellispaces.ixora.structures.properties.PropertiesHandle;
-import intellispaces.ixora.structures.properties.PropertiesToDataGuide;
+import intellispaces.ixora.mindstructs.structures.properties.PropertiesHandle;
+import intellispaces.ixora.mindstructs.structures.properties.PropertiesToDataGuide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

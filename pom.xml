@@ -7,6 +7,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <groupId>mindstructs</groupId>
     <artifactId>ixora-structures-test</artifactId>
     <packaging>jar</packaging>
     <description>Tests for general data structures</description>
@@ -32,10 +33,10 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!-- Ixora -->
+        <!-- Mindstructs -->
         <dependency>
-            <groupId>intellispaces</groupId>
-            <artifactId>ixora-structures-ontology</artifactId>
+            <groupId>mindstructs</groupId>
+            <artifactId>mindstructs-structures-ontology</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
