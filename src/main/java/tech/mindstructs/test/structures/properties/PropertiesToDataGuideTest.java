@@ -1,7 +1,7 @@
 package tech.mindstructs.test.structures.properties;
 
 import intellispaces.ixora.mindstructs.structures.properties.PropertiesHandle;
-import intellispaces.ixora.mindstructs.structures.properties.PropertiesToDataMapperGuide;
+import intellispaces.ixora.mindstructs.structures.properties.PropertiesToDataMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Tests for guide {@link PropertiesToDataMapperGuide}.
+ * Tests for guide {@link PropertiesToDataMapper}.
  */
 public abstract class PropertiesToDataGuideTest {
 
@@ -27,7 +27,7 @@ public abstract class PropertiesToDataGuideTest {
     Modules.activeModule().stop();
   }
 
-  public abstract PropertiesToDataMapperGuide guide();
+  public abstract PropertiesToDataMapper guide();
 
   @Test
   public void testPrimitiveData_whenEmptyProperties() {
