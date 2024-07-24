@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 /**
  * Tests for guide {@link PropertiesToDataMapper}.
  */
-public abstract class PropertiesToDataGuideTest {
+public abstract class PropertiesToDataMapperTest {
 
   @BeforeEach
   public void init() {

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Tests for guide {@link YamlStringToPropertiesMapper}.
  */
-public abstract class YamlStringToPropertiesMapperGuideTest {
+public abstract class YamlStringToPropertiesMapperTest {
 
   @BeforeEach
   public void init() {
