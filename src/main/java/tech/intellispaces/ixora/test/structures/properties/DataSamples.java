@@ -1,8 +1,8 @@
-package tech.mindstructs.test.structures.properties;
+package tech.intellispaces.ixora.test.structures.properties;
 
-import tech.intellispaces.framework.core.annotation.Data;
-import tech.intellispaces.framework.core.annotation.Domain;
-import tech.intellispaces.framework.core.annotation.Transition;
+import tech.intellispaces.core.annotation.Data;
+import tech.intellispaces.core.annotation.Domain;
+import tech.intellispaces.core.annotation.Transition;
 
 public interface DataSamples {
 

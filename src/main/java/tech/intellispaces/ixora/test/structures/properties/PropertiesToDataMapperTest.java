@@ -1,12 +1,12 @@
-package tech.mindstructs.test.structures.properties;
+package tech.intellispaces.ixora.test.structures.properties;
 
-import intellispaces.ixora.mindstructs.structures.properties.PropertiesHandle;
-import intellispaces.ixora.mindstructs.structures.properties.PropertiesToDataMapper;
+import intellispaces.ixora.structures.properties.PropertiesHandle;
+import intellispaces.ixora.structures.properties.PropertiesToDataMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.framework.core.IntellispacesFramework;
-import tech.intellispaces.framework.core.system.Modules;
+import tech.intellispaces.core.IntellispacesFramework;
+import tech.intellispaces.core.system.Modules;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;

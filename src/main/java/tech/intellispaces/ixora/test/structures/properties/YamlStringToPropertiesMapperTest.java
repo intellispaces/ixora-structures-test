@@ -1,13 +1,13 @@
-package tech.mindstructs.test.structures.properties;
+package tech.intellispaces.ixora.test.structures.properties;
 
-import intellispaces.ixora.mindstructs.structures.collection.List;
-import intellispaces.ixora.mindstructs.structures.properties.Properties;
-import intellispaces.ixora.mindstructs.structures.properties.YamlStringToPropertiesMapper;
+import intellispaces.ixora.structures.collection.List;
+import intellispaces.ixora.structures.properties.PropertiesHandle;
+import intellispaces.ixora.structures.properties.YamlStringToPropertiesMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.framework.core.IntellispacesFramework;
-import tech.intellispaces.framework.core.system.Modules;
+import tech.intellispaces.core.IntellispacesFramework;
+import tech.intellispaces.core.system.Modules;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -34,7 +34,7 @@ public abstract class YamlStringToPropertiesMapperTest {
     String yaml = "";
 
     // When
-    Properties properties = guide().yamlStringToProperties(yaml);
+    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -51,7 +51,7 @@ public abstract class YamlStringToPropertiesMapperTest {
         """;
 
     // When
-    Properties properties = guide().yamlStringToProperties(yaml);
+    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -79,7 +79,7 @@ public abstract class YamlStringToPropertiesMapperTest {
         """;
 
     // When
-    Properties properties = guide().yamlStringToProperties(yaml);
+    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -108,7 +108,7 @@ public abstract class YamlStringToPropertiesMapperTest {
         """;
 
     // When
-    Properties properties = guide().yamlStringToProperties(yaml);
+    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -137,7 +137,7 @@ public abstract class YamlStringToPropertiesMapperTest {
         """;
 
     // When
-    Properties properties = guide().yamlStringToProperties(yaml);
+    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -164,7 +164,7 @@ public abstract class YamlStringToPropertiesMapperTest {
         """;
 
     // When
-    Properties properties = guide().yamlStringToProperties(yaml);
+    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
