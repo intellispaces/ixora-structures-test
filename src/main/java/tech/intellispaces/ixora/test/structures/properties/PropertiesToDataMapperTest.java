@@ -7,6 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tech.intellispaces.core.IntellispacesFramework;
 import tech.intellispaces.core.system.Modules;
+import tech.intellispaces.ixora.test.structures.properties.samples.NestedDataHandle;
+import tech.intellispaces.ixora.test.structures.properties.samples.PrimitiveDataHandle;
+import tech.intellispaces.ixora.test.structures.properties.samples.SimpleDataHandle;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -35,7 +38,7 @@ public abstract class PropertiesToDataMapperTest {
     PropertiesHandle properties = mock(PropertiesHandle.class);
 
     // When
-    DataSamples.PrimitiveData data = guide().propertiesToData(properties, DataSamples.PrimitiveData.class);
+    PrimitiveDataHandle data = guide().propertiesToData(properties, PrimitiveDataHandle.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -49,7 +52,7 @@ public abstract class PropertiesToDataMapperTest {
     PropertiesHandle properties = mock(PropertiesHandle.class);
 
     // When
-    DataSamples.SimpleData data = guide().propertiesToData(properties, DataSamples.SimpleData.class);
+    SimpleDataHandle data = guide().propertiesToData(properties, SimpleDataHandle.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -64,7 +67,7 @@ public abstract class PropertiesToDataMapperTest {
     PropertiesHandle properties = mock(PropertiesHandle.class);
 
     // When
-    DataSamples.NestedData data = guide().propertiesToData(properties, DataSamples.NestedData.class);
+    NestedDataHandle data = guide().propertiesToData(properties, NestedDataHandle.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -80,7 +83,7 @@ public abstract class PropertiesToDataMapperTest {
     when(properties.value("doubleValue")).thenReturn(2.2);
 
     // When
-    DataSamples.PrimitiveData data = guide().propertiesToData(properties, DataSamples.PrimitiveData.class);
+    PrimitiveDataHandle data = guide().propertiesToData(properties, PrimitiveDataHandle.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -97,7 +100,7 @@ public abstract class PropertiesToDataMapperTest {
     when(properties.value("stringValue")).thenReturn("abc");
 
     // When
-    DataSamples.SimpleData data = guide().propertiesToData(properties, DataSamples.SimpleData.class);
+    SimpleDataHandle data = guide().propertiesToData(properties, SimpleDataHandle.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -116,7 +119,7 @@ public abstract class PropertiesToDataMapperTest {
     when(nestedProperties.value("stringValue")).thenReturn("def");
 
     // When
-    DataSamples.NestedData data = guide().propertiesToData(properties, DataSamples.NestedData.class);
+    NestedDataHandle data = guide().propertiesToData(properties, NestedDataHandle.class);
 
     // Then
     assertThat(data).isNotNull();
