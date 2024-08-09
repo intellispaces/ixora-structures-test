@@ -24,7 +24,7 @@ public abstract class YamlStringToPropertiesMapperTest {
 
   @AfterEach
   public void deinit() {
-    Modules.activeModule().stop();
+    Modules.currentModule().stop();
   }
 
   public abstract YamlStringToPropertiesMapper guide();

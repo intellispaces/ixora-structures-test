@@ -27,7 +27,7 @@ public abstract class PropertiesToDataMapperTest {
 
   @AfterEach
   public void deinit() {
-    Modules.activeModule().stop();
+    Modules.currentModule().stop();
   }
 
   public abstract PropertiesToDataMapper guide();
